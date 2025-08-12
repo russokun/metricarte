@@ -29,7 +29,9 @@ const EmbeddedForm = ({ formType }) => {
         { name: 'phone', label: 'Teléfono', type: 'tel', icon: Phone, required: false },
         { name: 'message', label: 'Mensaje', type: 'textarea', icon: MessageSquare, required: true }
       ],
-      webhookUrl: 'https://your-n8n-instance.com/webhook/contact',
+      webhookUrl: (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.MODE === 'production')
+        ? 'https://n8n.russoftware.com/webhook/7c2c7c12-5c0d-4ada-a024-3123b30d33ac'
+        : 'https://n8n.russoftware.com/webhook-test/7c2c7c12-5c0d-4ada-a024-3123b30d33ac',
       submitText: 'Enviar Mensaje'
     },
     demo: {
@@ -46,7 +48,7 @@ const EmbeddedForm = ({ formType }) => {
         { name: 'preferredDate', label: 'Fecha preferida', type: 'date', icon: Calendar, required: true },
         { name: 'requirements', label: 'Requerimientos específicos', type: 'textarea', icon: MessageSquare, required: false }
       ],
-      webhookUrl: 'https://your-n8n-instance.com/webhook/demo',
+    webhookUrl: 'https://n8n.russoftware.com/webhook-test/7c2c7c12-5c0d-4ada-a024-3123b30d33ac',
       submitText: 'Agendar Demo'
     },
     support: {
@@ -63,7 +65,7 @@ const EmbeddedForm = ({ formType }) => {
         ]},
         { name: 'description', label: 'Descripción del problema', type: 'textarea', icon: MessageSquare, required: true }
       ],
-      webhookUrl: 'https://your-n8n-instance.com/webhook/support',
+    webhookUrl: 'https://n8n.russoftware.com/webhook-test/7c2c7c12-5c0d-4ada-a024-3123b30d33ac',
       submitText: 'Enviar Ticket'
     }
   };
@@ -105,28 +107,24 @@ const EmbeddedForm = ({ formType }) => {
     setIsLoading(true);
 
     try {
-      // Simulate API call to n8n webhook
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      // In a real implementation, you would make the actual API call:
-      // const response = await fetch(config.webhookUrl, {
-      //   method: 'POST',
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   },
-      //   body: JSON.stringify({
-      //     formType,
-      //     timestamp: new Date().toISOString(),
-      //     ...formData
-      //   })
-      // });
-
+      // Enviar datos reales al endpoint de n8n
+      const response = await fetch(config.webhookUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          formType,
+          timestamp: new Date().toISOString(),
+          ...formData
+        })
+      });
+      if (!response.ok) throw new Error('Error en el envío');
       setIsSubmitted(true);
       toast({
         title: "¡Enviado exitosamente!",
         description: "Hemos recibido tu información. Te contactaremos pronto.",
       });
-
     } catch (error) {
       toast({
         title: "Error al enviar",

@@ -6,6 +6,8 @@ import Hero from '@/components/Hero';
 import MetricsSection from '@/components/MetricsSection.jsx';
 import FormSection from '@/components/FormSection.jsx';
 import Footer from '@/components/Footer.jsx';
+import TestimonialsSection from '@/components/TestimonialsSection.jsx';
+import FAQSection from '@/components/FAQSection.jsx';
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
         <Hero />
         <MetricsSection />
         <FormSection />
+    <TestimonialsSection />
+    <FAQSection />
         <Footer />
         <Toaster />
       </div>
