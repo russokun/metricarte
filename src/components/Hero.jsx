@@ -1,3 +1,4 @@
+import { Button } from '@/components/ui/Button';
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, TrendingUp, Zap, Shield } from 'lucide-react';
