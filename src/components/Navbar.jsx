@@ -1,7 +1,7 @@
+import { Button } from '@/components/ui/Button';
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X, BarChart3, Settings, Users } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import { useToast } from '@/components/ui/use-toast';
 
 const Navbar = () => {
