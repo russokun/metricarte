@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send, CheckCircle, AlertCircle, Loader2, Mail, User, MessageSquare, Calendar, Phone, Building } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/Button';
 import { useToast } from '@/components/ui/use-toast';
 const EmbeddedForm = ({ formType }) => {
   const [formData, setFormData] = useState({});
