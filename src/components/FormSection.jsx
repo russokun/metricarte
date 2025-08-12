@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import { useToast } from '@/components/ui/use-toast';
 import EmbeddedForm from '@/components/EmbeddedForm';
-
 const FormSection = () => {
   const [activeTab, setActiveTab] = useState('contact');
   const { toast } = useToast();
