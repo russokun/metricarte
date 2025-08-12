@@ -1,23 +1,30 @@
-import Hero from './components/sections/Hero';
-import Technology from './components/sections/Technology';
-import Products from './components/sections/Products';
-import Testimonials from './components/sections/Testimonials';
-import FAQ from './components/sections/FAQ';
-import Contact from './components/sections/Contact';
-import Footer from './components/layout/Footer';
+import React from 'react';
+import { Helmet } from 'react-helmet';
+import { Toaster } from '@/components/ui/toaster';
+import Navbar from '@/components/Navbar';
+import Hero from '@/components/Hero';
+import MetricsSection from '@/components/MetricsSection.jsx';
+import FormSection from '@/components/FormSection.jsx';
+import Footer from '@/components/Footer.jsx';
 
-const App = () => {
+function App() {
   return (
-    <div className="min-h-screen bg-white">
-      <Hero />
-      <Technology />
-      <Products />
-      <Testimonials />
-      <FAQ />
-      <Contact />
-      <Footer />
-    </div>
+    <>
+      <Helmet>
+        <title>Metricarte - Análisis de Métricas Profesional</title>
+        <meta name="description" content="Plataforma profesional para análisis de métricas y automatización de procesos empresariales con formularios inteligentes." />
+      </Helmet>
+      
+      <div className="min-h-screen">
+        <Navbar />
+        <Hero />
+        <MetricsSection />
+        <FormSection />
+        <Footer />
+        <Toaster />
+      </div>
+    </>
   );
-};
+}
 
 export default App;
