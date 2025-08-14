@@ -16,7 +16,7 @@ const Footer = () => {
   return (
     <footer className="bg-black/20 backdrop-blur-lg border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2  gap-8">
           {/* Brand */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -58,27 +58,6 @@ const Footer = () => {
             </div>
           </motion.div>
 
-          {/* Product */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="space-y-4"
-          >
-            <span className="font-semibold text-white text-lg">Producto</span>
-            <div className="space-y-3">
-              {['Dashboard', 'Análisis', 'Automatización', 'Reportes', 'Integraciones'].map((item) => (
-                <button
-                  key={item}
-                  onClick={() => handleLinkClick(item.toLowerCase())}
-                  className="block text-white/70 hover:text-white transition-colors text-sm"
-                >
-                  {item}
-                </button>
-              ))}
-            </div>
-          </motion.div>
 
 
           {/* Contacto */}

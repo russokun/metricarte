@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 const faqs = [
   {
@@ -47,17 +48,21 @@ export default function FAQSection() {
         <h2 className="text-4xl font-extrabold text-center mb-14 text-[#1E3C94] drop-shadow-lg">Preguntas Frecuentes</h2>
         <div className="space-y-6">
           {faqs.map((faq, i) => (
-            <div
+            <motion.div
               key={i}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: i * 0.12 }}
+              viewport={{ once: true }}
               className={`transition-all duration-300 bg-[#EFF6FF] rounded-2xl shadow-xl border border-[#1E3C94]/20 ${openIndex === i ? 'ring-2 ring-[#1E3C94]' : ''}`}
             >
               <button
                 className="w-full text-left px-8 py-6 focus:outline-none flex justify-between items-center"
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
               >
-                <span className="flex items-center gap-3 font-semibold text-[#1F2937] text-lg">
-                  <svg width="24" height="24" fill="none" stroke="#1E3C94" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M12 16v-4" /><path d="M12 8h.01" /></svg>
-                  {faq.question}
+                <span className="flex flex-col xs:flex-row items-start xs:items-center gap-2 xs:gap-3 font-semibold text-[#1F2937] text-lg">
+                  <svg className="flex-shrink-0 w-6 h-6 xs:w-6 xs:h-6" fill="none" stroke="#1E3C94" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M12 16v-4" /><path d="M12 8h.01" /></svg>
+                  <span className="break-words max-w-full xs:max-w-xs sm:max-w-none">{faq.question}</span>
                 </span>
                 <span className="ml-4 text-[#1E3C94] text-2xl font-bold">{openIndex === i ? "−" : "+"}</span>
               </button>
@@ -65,12 +70,17 @@ export default function FAQSection() {
                 className={`overflow-hidden transition-all duration-300 ${openIndex === i ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}
               >
                 {openIndex === i && (
-                  <div className="px-8 pb-6 text-[#111827] border-t border-[#1E3C94]/20 animate-fadein">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="px-8 pb-6 text-[#111827] border-t border-[#1E3C94]/20 animate-fadein"
+                  >
                     {faq.answer}
-                  </div>
+                  </motion.div>
                 )}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

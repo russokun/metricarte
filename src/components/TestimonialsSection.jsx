@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 const testimonials = [
   {
@@ -43,8 +44,12 @@ export default function TestimonialsSection() {
         <h2 className="text-4xl font-extrabold text-center mb-14 text-[#1E3C94] drop-shadow-lg">¿Qué dicen de nosotros?</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {testimonials.map((t, i) => (
-            <div
+            <motion.div
               key={i}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: i * 0.15 }}
+              viewport={{ once: true }}
               className="bg-[#EFF6FF] p-8 rounded-3xl shadow-xl border border-[#1E3C94]/20 hover:scale-105 hover:shadow-2xl transition-transform duration-300 flex flex-col items-center text-center"
             >
               <div className="relative mb-4">
@@ -77,7 +82,7 @@ export default function TestimonialsSection() {
               <p className="font-semibold text-[#1F2937] text-lg mb-1">{t.name}</p>
               <p className="text-sm text-[#1E3C94] mb-4">{t.role}</p>
               <p className="text-[#111827] italic text-base leading-relaxed">“{t.quote}”</p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
