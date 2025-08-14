@@ -2,24 +2,34 @@ import React, { useState } from "react";
 
 const faqs = [
   {
-    question: "¿Qué es MetricArte?",
+    question: "¿Cuantos test puedo generar x mes?",
     answer:
-      "MetricArte es una plataforma de visualización y análisis de datos pensada para empresas que buscan tomar decisiones informadas.",
+      "Puedes generar hasta 500 test test mensuales , no acumulables.",
   },
   {
-    question: "¿Cómo puedo integrar MetricArte en mi empresa?",
+    question: "¿Me llega copia del test que hace mi coachee?",
     answer:
-      "La integración es sencilla y contamos con soporte técnico para acompañarte en cada paso.",
+      "Desde nuestra interfaz de cliente tu le envías el enlace a tu coachee para que complete el test, al momento de llenar el registro te llegará copia para que puedeas generar tu sesión.",
   },
   {
-    question: "¿Ofrecen soporte personalizado?",
+    question: "¿En el caso de hacer tests masivos puedo acceder a una planilla con todos los resultados?",
     answer:
-      "Sí, nuestro equipo de expertos está disponible para ayudarte según las necesidades de tu empresa.",
+      "Asi es, te podemos exportar los registros de los test realizados a una planilla de calculo para que puedas generar reportes grupales y tabular datos masivos.",
   },
   {
-    question: "¿Qué métodos de pago aceptan?",
+    question: "¿Si cancelo mi suscripción me entregan mi data?",
     answer:
-      "Aceptamos tarjetas de crédito, transferencias bancarias y otros métodos digitales.",
+      "Asi es, si das de baja nuestro servicio puedes descargar toda tu data sin problema y sin costos ocultos.",
+  },
+  {
+    question: "¿Que tan confiables son sus tests?",
+    answer:
+      "Nuestros tests han sido desarrollados por un equipo multidisciplinario validado y probado en cientos de personas con un 97% de aceptación.",
+  },
+  {
+    question: "¿Cuanto se demora en procesar un informe desde que mi cliente llena una encuesta?",
+    answer:
+      "Antes de una hora tendrás el informe en tu correo y en el correo de tu coachee.",
   },
 ];
 
@@ -27,7 +37,7 @@ export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState(null);
 
   return (
-    <section className="relative py-20 bg-gradient-to-br from-[#EFF6FF] via-white to-[#1E3C94]" id="faq">
+  <section className="py-16 px-4" style={{ backgroundColor: '#DAE8FC' }}>
       <div className="absolute inset-0 pointer-events-none select-none opacity-10">
         <svg width="100%" height="100%" viewBox="0 0 1440 320" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path fill="#1E3C94" fillOpacity="0.08" d="M0,160L80,165.3C160,171,320,181,480,165.3C640,149,800,107,960,117.3C1120,128,1280,192,1360,224L1440,256L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>

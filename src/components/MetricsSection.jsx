@@ -125,10 +125,10 @@ const MetricsSection = () => {
         >
           <div className="glass-effect rounded-2xl p-8 max-w-4xl mx-auto">
             <h3 className="font-heading text-2xl md:text-3xl font-bold text-white mb-4">
-              ¿Listo para optimizar tus métricas?
+              Damos visibilidad a la complejidad a través de informes simples y bellos
             </h3>
             <p className="text-white/80 mb-6 text-lg">
-              Únete a miles de empresas que ya transformaron su toma de decisiones con Metricarte
+              Nuestros informes ayudan a generar mayor alineación estratégica en personas y equipos.
             </p>
             <motion.button
               whileHover={{ scale: 1.05 }}

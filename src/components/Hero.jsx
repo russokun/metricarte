@@ -10,7 +10,7 @@ const Hero = () => {
   const handleCTAClick = () => {
     toast({
       title: "🚧 Funcionalidad en desarrollo",
-      description: "El registro estará disponible pronto. ¡Solicítalo en tu próximo prompt! 🚀",
+      description: "El registro estará disponible pronto. 🚀",
     });
   };
 
@@ -31,11 +31,11 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              Transforma tus{' '}
+              Genera{' '}
               <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
-                métricas
+                reportes profesionales
               </span>{' '}
-              en decisiones inteligentes
+              para tus procesos de coaching y facilitación
             </motion.h1>
             
             <motion.p 
@@ -44,7 +44,7 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Medición de performance para aumentar el autoconocimiento y productividad de tu equipo, al alcance de la PyME y consultores independientes.
+              Agrega valor a tu proceso personal o grupal incorporando la tecnología de metricarte y diferénciate en el mercado.
             </motion.p>
 
             <motion.div 

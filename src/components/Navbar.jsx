@@ -11,7 +11,7 @@ const Navbar = () => {
   const handleNavClick = (section) => {
     toast({
       title: "🚧 Navegación en desarrollo",
-      description: "Esta sección estará disponible pronto. ¡Solicítala en tu próximo prompt! 🚀",
+      description: "Esta sección estará disponible pronto.🚀",
     });
     setIsOpen(false);
   };

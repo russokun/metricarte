@@ -9,7 +9,7 @@ const Footer = () => {
   const handleLinkClick = (section) => {
     toast({
       title: "🚧 Sección en desarrollo",
-      description: "Esta página estará disponible pronto. ¡Solicítala en tu próximo prompt! 🚀",
+      description: "Esta página estará disponible pronto. 🚀",
     });
   };
 
@@ -34,7 +34,7 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-white/70 text-sm leading-relaxed">
-              Plataforma profesional para análisis de métricas empresariales con automatización inteligente y formularios conectados a n8n.
+              Medición de performance para aumentar el autoconocimiento y productividad de tu equipo, al alcance de la PyME y consultores independientes.
             </p>
             <div className="flex space-x-4">
               <button 
@@ -80,27 +80,6 @@ const Footer = () => {
             </div>
           </motion.div>
 
-          {/* Empresa */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="space-y-4"
-          >
-            <span className="font-semibold text-white text-lg">Empresa</span>
-            <div className="space-y-3">
-              {['Acerca de', 'Carreras', 'Blog', 'Prensa', 'Socios'].map((item) => (
-                <button
-                  key={item}
-                  onClick={() => handleLinkClick(item.toLowerCase())}
-                  className="block text-white/70 hover:text-white transition-colors text-sm"
-                >
-                  {item}
-                </button>
-              ))}
-            </div>
-          </motion.div>
 
           {/* Contacto */}
           <motion.div
@@ -114,15 +93,15 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center space-x-3 text-white/70 text-sm">
                 <Mail className="w-4 h-4" />
-                <span>contacto@metricarte.com</span>
+                <span>info@metricarte.com</span>
               </div>
               <div className="flex items-center space-x-3 text-white/70 text-sm">
                 <Phone className="w-4 h-4" />
-                <span>+1 (555) 123-4567</span>
+                <span>+56 9 2082 6972</span>
               </div>
               <div className="flex items-center space-x-3 text-white/70 text-sm">
                 <MapPin className="w-4 h-4" />
-                <span>Madrid, España</span>
+                <span>Santiago de Chile</span>
               </div>
             </div>
           </motion.div>
