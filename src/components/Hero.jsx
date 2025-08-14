@@ -1,11 +1,27 @@
 import { Button } from '@/components/ui/Button';
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useState } from 'react';
+import { motion, useAnimation } from 'framer-motion';
 import { ArrowRight, TrendingUp, Zap, Shield } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
 
+const HERO_BG =
+  "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80"; // Puedes cambiar la URL por la imagen que prefieras
+
 const Hero = () => {
   const { toast } = useToast();
+  const controls = useAnimation();
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Calcula opacidad en base al scroll (0 = visible, 300px = invisible)
+  const bgOpacity = Math.max(0, 1 - scrollY / 300);
 
   const handleCTAClick = () => {
     toast({
@@ -15,8 +31,27 @@ const Hero = () => {
   };
 
   return (
-    <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center">
-      <div className="max-w-7xl mx-auto">
+    <section
+      className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center relative overflow-hidden"
+      style={{ position: "relative" }}
+    >
+      {/* Imagen de fondo animada */}
+      <motion.div
+        initial={{ opacity: 1 }}
+        animate={{ opacity: bgOpacity }}
+        transition={{ duration: 0.3 }}
+        className="absolute inset-0 w-full h-full z-0"
+        style={{
+          backgroundImage: `url(${HERO_BG})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          pointerEvents: "none",
+        }}
+      />
+      {/* Overlay para oscurecer la imagen y mejorar contraste */}
+      <div className="absolute inset-0 bg-black/60 z-0 pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
           <motion.div
