@@ -3,7 +3,8 @@ import { Helmet } from 'react-helmet';
 import { Toaster } from '@/components/ui/toaster';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
-import MetricsSection from '@/components/MetricsSection.jsx';
+import ServicesSection from '@/components/ServicesSection';
+// import MetricsSection from '@/components/MetricsSection.jsx';
 import FormSection from '@/components/FormSection.jsx';
 import Footer from '@/components/Footer.jsx';
 import TestimonialsSection from '@/components/TestimonialsSection.jsx';
@@ -20,10 +21,10 @@ function App() {
       <div className="min-h-screen">
         <Navbar />
         <Hero />
-        <MetricsSection />
+        <ServicesSection />
         <FormSection />
-    <TestimonialsSection />
-    <FAQSection />
+        <TestimonialsSection />
+        <FAQSection />
         <Footer />
         <Toaster />
       </div>
