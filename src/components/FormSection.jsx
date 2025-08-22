@@ -4,24 +4,19 @@ import { Send, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
 import EmbeddedForm from '@/components/EmbeddedForm';
 const FormSection = () => {
-  const [activeTab, setActiveTab] = useState('contact');
+  const [activeTab, setActiveTab] = useState('ruedaVida');
   const { toast } = useToast();
 
   const tabs = [
     {
-      id: 'contact',
+      id: 'ruedaVida',
+      label: 'Rueda de la Vida',
+      description: 'Evalúa tu bienestar'
+    },
+    {
+      id: 'contacto',
       label: 'Contacto',
       description: 'Conecta con nuestro equipo'
-    },
-    {
-      id: 'demo',
-      label: 'Solicitar Demo',
-      description: 'Agenda una demostración'
-    },
-    {
-      id: 'support',
-      label: 'Soporte',
-      description: 'Obtén ayuda técnica'
     }
   ];
 
