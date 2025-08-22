@@ -76,9 +76,7 @@ const formConfigs = {
       }
     ],
     submitText: "Enviar Evaluación",
-    webhookUrl: (typeof process !== 'undefined' && process.env && process.env.NODE_ENV === 'production')
-      ? "https://n8n.russoftware.com/webhook/7c2c7c12-5c0d-4ada-a024-3123b30d33ac"
-      : "https://n8n.russoftware.com/webhook-test/7c2c7c12-5c0d-4ada-a024-3123b30d33ac"
+  webhookUrl: import.meta.env.VITE_WEBHOOK_URL
   },
   contacto: {
     title: "Contáctanos",
