@@ -99,9 +99,12 @@ const EmbeddedForm = ({ formType }) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [step, setStep] = useState(1);
   const [errors, setErrors] = useState({});
+  const [iframeLoaded, setIframeLoaded] = useState(false);
+  const [iframeError, setIframeError] = useState(false);
   const { toast } = useToast();
 
   const config = formConfigs[formType];
+  const googleFormRuedaUrl = import.meta.env.VITE_GOOGLE_FORM_RUEDA_URL || null;
 
   const validate = () => {
     let newErrors = {};
@@ -196,6 +199,38 @@ const EmbeddedForm = ({ formType }) => {
   }
 
   if (formType === 'ruedaVida' && !isSubmitted) {
+    // If a Google Form URL is provided via env, embed it.
+    if (googleFormRuedaUrl) {
+      // When using the official Google Form embed, show only the iframe so
+      // the form's own title/heading are visible (avoids duplicate titles).
+      return (
+        <motion.div
+          key={formType + step}
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          className="bg-white rounded-3xl shadow-xl p-0 md:p-0"
+          style={{ minHeight: 400 }}
+        >
+          <div className="w-full h-[800px] rounded-2xl overflow-hidden border">
+            <iframe
+              src={googleFormRuedaUrl}
+              title="Rueda de la Vida - Google Form"
+              width="100%"
+              height="100%"
+              frameBorder="0"
+              className="block"
+              onLoad={() => { setIframeLoaded(true); setIframeError(false); }}
+              onError={() => { setIframeError(true); setIframeLoaded(false); }}
+            />
+          </div>
+          {iframeError && (
+            <div className="mt-3 text-sm text-red-600">El formulario no pudo cargarse en este navegador. Contacta soporte si el problema persiste.</div>
+          )}
+        </motion.div>
+      );
+    }
+
+    // Fallback: render internal form if no Google Form URL provided
     return (
       <motion.div
         key={formType + step}
@@ -209,7 +244,7 @@ const EmbeddedForm = ({ formType }) => {
           <p className="text-gray-600 mb-6">{config.description}</p>
           {step === 1 && config.step1.map((field) => (
             <div key={field.name} className="form-group">
-              {/* ...renderizar campo como en los otros forms... */}
+              {/* ...existing internal form rendering... */}
               {field.type === 'select' ? (
                 <div className="mb-2">
                   <label className="block text-gray-700 font-medium mb-1">{field.label}</label>
